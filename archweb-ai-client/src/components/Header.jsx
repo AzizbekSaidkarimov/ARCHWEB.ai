@@ -1,124 +1,125 @@
-// import React from 'react';
-// import { Home, Menu, X } from 'lucide-react';
-
-// const Header = () => {
-//   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-//   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-//   return (
-//     <header classNameName="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-//       <div classNameName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div classNameName="flex justify-between items-center h-16">
-//           <div classNameName="flex items-center space-x-2">
-//             <Home classNameName="w-8 h-8 text-slate-800" />
-//             <span classNameName="text-xl font-bold text-slate-800">ARCHWEB.ai</span>
-//           </div>
-
-//           <nav classNameName="hidden md:flex items-center space-x-8">
-//             <a href="#features" classNameName="text-slate-600 hover:text-slate-800 transition-colors">Features</a>
-//             <a href="#how-it-works" classNameName="text-slate-600 hover:text-slate-800 transition-colors">How It Works</a>
-//             <a href="#gallery" classNameName="text-slate-600 hover:text-slate-800 transition-colors">Gallery</a>
-//             <a href="#pricing" classNameName="text-slate-600 hover:text-slate-800 transition-colors">Pricing</a>
-//             <button classNameName="bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600 transition-colors font-medium">
-//               Get Started
-//             </button>
-//           </nav>
-
-//           <button
-//             classNameName="md:hidden p-2 text-slate-600 hover:text-slate-800"
-//             onClick={toggleMenu}
-//           >
-//             {isMenuOpen ? <X classNameName="w-6 h-6" /> : <Menu classNameName="w-6 h-6" />}
-//           </button>
-//         </div>
-
-//         {/* Mobile menu */}
-//         {isMenuOpen && (
-//           <div classNameName="md:hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-100 shadow-lg">
-//             <nav classNameName="flex flex-col space-y-4 p-4">
-//               <a href="#features" classNameName="text-slate-600 hover:text-slate-800 transition-colors" onClick={toggleMenu}>Features</a>
-//               <a href="#how-it-works" classNameName="text-slate-600 hover:text-slate-800 transition-colors" onClick={toggleMenu}>How It Works</a>
-//               <a href="#gallery" classNameName="text-slate-600 hover:text-slate-800 transition-colors" onClick={toggleMenu}>Gallery</a>
-//               <a href="#pricing" classNameName="text-slate-600 hover:text-slate-800 transition-colors" onClick={toggleMenu}>Pricing</a>
-//               <button classNameName="bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600 transition-colors font-medium text-left">
-//                 Get Started
-//               </button>
-//             </nav>
-//           </div>
-//         )}
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-import React from "react";
+import React, { Suspense } from "react";
+import { Canvas } from "react-three-fiber";
+import Model from "./Model";
+import { Environment, OrbitControls, Sky } from "@react-three/drei";
+import PlayerControls from './PlayerControls'; 
+import Focus from "./Focus";
 
 const Header = () => {
-  const images = [
-    "/images/100,000+ Free Architecture+The+Architecture+ & Architecture Images.jpeg",
-    "/images/Old Money Lifestyle.jpeg",
-    "/images/Pokar Architects.jpeg",
-    "/images/download (21).jpeg"
-  ];
-
   return (
     <header className="hero ">
-      <div className="header_left_side ">
-      <div className="hero-image">
-        <img src="/images/header_image.jpg" alt="3D Interior" />
-      </div>
-      <div className="hero-text">
-        <div className="primary_hero_text">
-        <h1 className="TITLE-PRIMARY text-5xl font-semibold text-white md:text-6xl">Revolutionize Your Space with AI-Powered 3D Design</h1>
-        <p><i>"From prompt to Reality."</i></p>
+      <div class="relative overflow-hidden bg-[#F1EBE4] hero-pattern">
+        <div class="absolute inset-0 z-0 opacity-20">
+          <svg
+            class="w-full h-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,0 L100,0 L100,100 L0,100 Z"
+              fill="url(#hero-gradient)"
+            ></path>
+          </svg>
         </div>
-        <div className="hero_text_desc">
-        <div className="text_for_brands">
-        <p className="hero_50 border: 1px solid transparent;">50+</p>
-        <span className="hero_3dDC">3d Design Companies</span>
-        </div>
-      <div className="circle-container">
-      {images.map((src, index) => (
-        <img
-          key={index}
-          src={src}
-          alt={`circle-${index}`}
-          className="circle-image"
-          style={{ zIndex: index }}
-        />
-      ))}
-    </div>
-        </div>
-      </div>
-      
-      </div>
 
-      <div id="form" className="form">
-        <div
-          id="heading"
-          className="glass glass--gradient glass--heading"
-          onClick={() =>
-            document.querySelector(".form").classList.toggle("open")
-          }
-        >
-          <span className="form-header">
-            <span className="form-icon"></span>
-            <span className="form-title">
-              What would you like to build today?
-            </span>
-          </span>
-          <button className="form-close-button header_button">✕</button>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <div class="lg:col-span-6">
+              <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                <span>Transform your ideas into</span>
+                <span class="gradient-text"> stunning 3D designs</span>
+              </h1>
+              <p class="mt-6 text-xl text-gray-600">
+                Our AI-powered 3D renderer turns your concepts into beautiful,
+                realistic 3D designs in seconds. No technical skills required.
+              </p>
+              <div class="mt-10">
+                <form id="design-form" class="sm:flex">
+                  <label for="design-input" class="sr-only">
+                    Describe your design
+                  </label>
+                  <div class="w-full">
+                    <input
+                      id="design-input"
+                      name="design"
+                      type="text"
+                      required
+                      class="w-full px-5 py-4 text-base text-gray-900 placeholder-gray-500 border border-transparent rounded-md input-gradient focus:outline-none focus:ring-2 focus:ring-[#8D7B68]"
+                      placeholder="Describe the 3D design you want..."
+                    />
+                  </div>
+                  <div class="mt-3 sm:mt-0 sm:ml-3">
+                    <button
+                      type="submit"
+                      class="w-full flex items-center justify-center px-5 py-4 border border-transparent text-base font-medium rounded-md text-white bg-[#8D7B68] hover:bg-[#7D6E5D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8D7B68]"
+                    >
+                      Generate
+                      <svg
+                        class="ml-2 -mr-1 w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+                <p class="mt-3 text-sm text-gray-500">
+                  Try: "Modern kitchen with island" or "Futuristic gaming setup"
+                </p>
+              </div>
+            </div>
+            <div class="mt-12 lg:mt-0 lg:col-span-6">
+              <div class="relative h-64 sm:h-72 md:h-96 lg:h-full">
+                <div class="absolute inset-0 bg-white rounded-lg shadow-lg overflow-hidden">
+                  <div class="h-full flex items-center justify-center p-6">
+                    <div class="w-full h-full relative">
+                      <div class="embed-container">
+                        {/* <iframe 
+                                            title="A 3D model" 
+                                            frameborder="0" 
+                                            allowfullscreen 
+                                            mozallowfullscreen="true" 
+                                            webkitallowfullscreen="true" 
+                                            allow="autoplay; fullscreen; xr-spatial-tracking" 
+                                            xr-spatial-tracking 
+                                            execution-while-out-of-viewport 
+                                            execution-while-not-rendered 
+                                            web-share 
+                                            width="640" 
+                                            height="480" 
+                                            src="https://sketchfab.com/models/b5f511f4bbcc43e7a7624b5923dec997/embed">
+                                          </iframe> */}
+                        <Canvas camera={{ zoom: 10, position: [100, 30, 4] }}>
+                          <ambientLight intensity={0.6} />
+                          <directionalLight position={[5, 5, 5]} />
+                          <React.Suspense fallback={null}>
+                            <Model scale={1.5} />
+                            <OrbitControls />
+                            <Environment preset="sunset" />
+                          </React.Suspense>
+                          <PlayerControls />
+                          <Focus/>
+                        </Canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="input" className="glass">
-          <input
-            type="text"
-            placeholder="I want a cozy Scandinavian-style bedroom..."
-            className="header_input"
-          />
-          <button className=" ">Generate</button>
-        </div>
+
+        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#F1EBE4] to-transparent"></div>
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#A4907C] opacity-10"></div>
+        <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-[#8D7B68] opacity-10"></div>
       </div>
     </header>
   );

@@ -1,22 +1,3 @@
-// import React from 'react';
-// import Navbar from './components/Navbar';
-// import HeroSection from './components/HeroSection';
-// import Features from './components/Features';
-// import PromptSection from './components/PromptSection';
-
-// function App() {
-//   return (
-//     <>
-//       <Navbar />
-//       <PromptSection />
-//       <HeroSection />
-//       <Features />
-//     </>
-//   );
-// }
-
-
-// export default App;
 import React from 'react';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
