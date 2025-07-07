@@ -30,7 +30,7 @@ const HowItWorks = () => {
   // ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-slate-50">
+    <section id="how-it-works" className="bg-slate-50">
               <div id="how-it-works" class="bg-[#F9F7F5] py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">

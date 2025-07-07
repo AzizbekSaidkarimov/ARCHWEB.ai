@@ -1,13 +1,46 @@
 import React, { Suspense } from "react";
-import { Canvas } from "react-three-fiber";
-import Model from "./Model";
-import { Environment, OrbitControls, Sky } from "@react-three/drei";
-import PlayerControls from './PlayerControls'; 
-import Focus from "./Focus";
+// import { Canvas } from "react-three-fiber";
+// import Model from "./Model";
+// import { Environment, OrbitControls, Sky } from "@react-three/drei";
+// import PlayerControls from "./PlayerControls";
+// import Focus from "./Focus";
+import { useEffect } from "react";
 
 const Header = () => {
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src = "https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js";
+  //   script.async = true;
+  //   script.crossOrigin = "anonymous";
+
+  //   script.onload = () => {
+  //     const iframe = document.getElementById("api-frame");
+  //     const client = new window.Sketchfab(iframe);
+
+  //     client.init("b5f511f4bbcc43e7a7624b5923dec997", {
+  //       success: function (api) {
+  //         api.start();
+
+  //         api.addEventListener("viewerready", function () {
+  //           // ✅ These methods work
+  //           api.hideAnnotationTooltips();
+  //           api.setAnnotationVisibility(false);
+  //           api.showInspector(false);
+
+  //           // Optional: Camera example
+  //           api.lookAt([0, 0, 0], [0, 0, 2]);
+  //         });
+  //       },
+  //       error: function () {
+  //         console.error("Sketchfab API init failed");
+  //       },
+  //     });
+  //   };
+
+  //   document.body.appendChild(script);
+  // }, []);
   return (
-    <header className="hero ">
+    <header className="hero">
       <div class="relative overflow-hidden bg-[#F1EBE4] hero-pattern">
         <div class="absolute inset-0 z-0 opacity-20">
           <svg
@@ -79,25 +112,19 @@ const Header = () => {
             <div class="mt-12 lg:mt-0 lg:col-span-6">
               <div class="relative h-64 sm:h-72 md:h-96 lg:h-full">
                 <div class="absolute inset-0 bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div class="h-full flex items-center justify-center p-6">
-                    <div class="w-full h-full relative">
-                      <div class="embed-container">
-                        {/* <iframe 
-                                            title="A 3D model" 
-                                            frameborder="0" 
-                                            allowfullscreen 
-                                            mozallowfullscreen="true" 
-                                            webkitallowfullscreen="true" 
-                                            allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                            xr-spatial-tracking 
-                                            execution-while-out-of-viewport 
-                                            execution-while-not-rendered 
-                                            web-share 
-                                            width="640" 
-                                            height="480" 
-                                            src="https://sketchfab.com/models/b5f511f4bbcc43e7a7624b5923dec997/embed">
-                                          </iframe> */}
-                        <Canvas camera={{ zoom: 10, position: [100, 30, 4] }}>
+                  <div class="flex items-center justify-center p-6" style={{ height: '115%' }}>
+                    <div class="w-full relative h-full">
+                      <div class="embed-container h-full">
+                        <iframe
+                          id="api-frame"
+                          title="Sketchfab Viewer"
+                          width="100%"
+                          height="100%"
+                          allow="autoplay;  fullscreen; xr-spatial-tracking"
+                          src="https://sketchfab.com/models/b5f511f4bbcc43e7a7624b5923dec997/embed?autostart=1&preload=1&ui_hint=0&ui_infos=0"
+                        ></iframe>
+                        <div className="overlay-bottom" />
+                        {/* <Canvas camera={{ zoom: 10, position: [100, 30, 4] }}>
                           <ambientLight intensity={0.6} />
                           <directionalLight position={[5, 5, 5]} />
                           <React.Suspense fallback={null}>
@@ -107,7 +134,7 @@ const Header = () => {
                           </React.Suspense>
                           <PlayerControls />
                           <Focus/>
-                        </Canvas>
+                        </Canvas> */}
                       </div>
                     </div>
                   </div>

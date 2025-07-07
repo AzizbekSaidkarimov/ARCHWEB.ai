@@ -53,7 +53,7 @@ const Pricing = () => {
   // ];
 
   return (
-    <section id="pricing" className="py-20 bg-slate-50">
+    <section id="pricing" className="bg-slate-50">
               <div id="pricing" class="bg-white py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">

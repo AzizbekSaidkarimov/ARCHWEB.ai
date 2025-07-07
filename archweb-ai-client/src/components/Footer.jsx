@@ -8,12 +8,8 @@ const Footer = () => {
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center">
-                    <svg class="h-8 w-8 text-[#!C8B6A6]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span class="ml-2 text-xl font-bold text-white">3D Renderer AI</span>
+                <img width={"30"} height={"30"} src="/images/ChatGPT Image Jun 27, 2025, 01_35_41 AM.png" alt="" />
+                <span className="ml-2 text-xl font-bold text-white">ARCHWEB</span>
                 </div>
                 <p class="mt-4 text-base text-gray-300">Transform your ideas into stunning 3D designs with the power of AI. No technical skills required.</p>
             </div>
@@ -55,7 +51,7 @@ const Footer = () => {
                     </svg>
                 </a>
             </div>
-            <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">&amp;copy; 2023 3D Renderer AI. All rights reserved.</p>
+            <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">&amp;copy; 2025 3D Renderer AI. All rights reserved.</p>
         </div>
     </div>
 </footer>
